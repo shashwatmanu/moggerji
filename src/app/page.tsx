@@ -85,7 +85,7 @@ export default function Home() {
   
   const [mounted, setMounted] = useState(false);
 
-  const getSlides = (col, cat) => {
+  const getSlides = (col: string, cat: string) => {
     if (cat === 'HOODIES') return col === 'REGIME' ? HOODIE_REGIME_SLIDES : HOODIE_OPPOSITION_SLIDES;
     return col === 'REGIME' ? REGIME_SLIDES : OPPOSITION_SLIDES;
   };

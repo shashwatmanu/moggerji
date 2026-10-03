@@ -199,17 +199,19 @@ export default function ReelStudio() {
     }
 
     // Hero Name fades in (staggered)
-    const heroChars = heroName.querySelectorAll('.char');
-    const heroLine = heroName.querySelector('.char-line');
-    
-    tl.to(heroName, { opacity: 1, duration: 0.1 }, 2.1);
-    tl.to(heroChars, {
-      opacity: 1, y: 0, filter: 'blur(0px)',
-      duration: 0.8,
-      stagger: 0.05,
-      ease: 'back.out(1.5)'
-    }, 2.1);
-    tl.to(heroLine, { opacity: 1, scaleX: 1, duration: 0.8, ease: 'expo.out' }, 2.4);
+    if (heroName) {
+      const heroChars = heroName.querySelectorAll('.char');
+      const heroLine = heroName.querySelector('.char-line');
+      
+      tl.to(heroName, { opacity: 1, duration: 0.1 }, 2.1);
+      tl.to(heroChars, {
+        opacity: 1, y: 0, filter: 'blur(0px)',
+        duration: 0.8,
+        stagger: 0.05,
+        ease: 'back.out(1.5)'
+      }, 2.1);
+      tl.to(heroLine, { opacity: 1, scaleX: 1, duration: 0.8, ease: 'expo.out' }, 2.4);
+    }
 
     // Hero breathes and floats for the meme hold
     tl.to(hero, {
@@ -487,7 +489,7 @@ export default function ReelStudio() {
             <div ref={tintRef} className="absolute inset-0 mix-blend-multiply opacity-0" />
             
             {/* Fine Grain */}
-            <div className="absolute inset-0 mix-blend-overlay opacity-60 pointer-events-none" style={{ filter: 'url(#atmosphere-noise)', contrast: '1.5' }} />
+            <div className="absolute inset-0 mix-blend-overlay opacity-60 pointer-events-none" style={{ filter: 'url(#atmosphere-noise) contrast(1.5)' }} />
             
             {/* Dynamic Volumetric Light */}
             <div 
